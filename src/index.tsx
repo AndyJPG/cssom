@@ -6,7 +6,19 @@ import reportWebVitals from './reportWebVitals'
 
 const style = document.createElement('style')
 style.dataset.preezie = 'global'
-style.innerHTML = '.prz-widget-button { background-color: var(--primary-color, var(--widget-button-bg-color), #ffffff); }'
+style.innerHTML = `
+@font-face {
+  font-family: Montserrat;
+  src: url("https://preeziestaticcontent.blob.core.windows.net/static/fonts/Montserrat-Regular-Preezie.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("https://preeziestaticcontent.blob.core.windows.net/static/fonts/Roboto-Regular-Preezie.woff2") format("woff2");
+}
+
+.prz-widget-button { background-color: var(--primary-color, var(--widget-button-bg-color), #ffffff); } 
+`
 document.getElementsByTagName('head')[0].appendChild(style)
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)

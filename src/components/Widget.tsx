@@ -34,7 +34,7 @@ const Widget = () => {
       <p className="prz-widget-p prz-widget-p-c456">You can choose more than one!</p>
       <div className="prz-widget-answer-wrapper prz-widget-answer-wrapper-c123">
         {answers.map((answer) => (
-          <div className="prz-widget-answer">
+          <div className="prz-widget-answer" key={answer.content}>
             <div className="prz-widget-answer-img">
               <img src={answer.img} />
             </div>
@@ -47,6 +47,7 @@ const Widget = () => {
         <button className="prz-widget-button prz-widget-button-c123">back</button>
         <button className="prz-widget-button prz-widget-button-c456">next</button>
       </div>
+      <div className="prz-widget-logo">partnered with preezie</div>
     </div>
   )
 }

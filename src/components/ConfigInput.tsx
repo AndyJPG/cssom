@@ -10,20 +10,34 @@ interface ConfigInputProps {
 const ConfigInput = (props: ConfigInputProps) => {
   const { styleSheet, className, cssRuleKey, type } = props
   const [cssStyleRule, setCssStyleRule] = useState<CSSStyleRule | null>(null)
-  const [value, setValue] = useState(type === 'color' ? '#ffffff' : '')
+  const [value, setValue] = useState('')
+
+  useEffect(() => {
+    if (type === 'color' && value === '') {
+      setValue('#ffffff')
+    }
+  }, [])
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
+    changeStyle(`${e.target.value}${type === 'number' ? 'px' : ''}`)
+  }
 
+  const onRemove = () => {
+    changeStyle('')
+    setValue('#ffffff')
+  }
+
+  const changeStyle = (value: string) => {
     if (cssStyleRule) {
-      cssStyleRule.style.setProperty(cssRuleKey, e.target.value)
+      cssStyleRule.style.setProperty(cssRuleKey, value)
     } else {
       const styleRule = getCssStyleRule()
       if (styleRule) {
-        styleRule.style.setProperty(cssRuleKey, e.target.value)
+        styleRule.style.setProperty(cssRuleKey, value)
         setCssStyleRule(styleRule)
       } else {
-        const ruleIndex = styleSheet.insertRule(`${className} { ${cssRuleKey}: ${e.target.value}; }`)
+        const ruleIndex = styleSheet.insertRule(`${className} { ${cssRuleKey}: ${value}; }`)
         setCssStyleRule(styleSheet.cssRules[ruleIndex] as CSSStyleRule)
       }
     }
@@ -42,10 +56,12 @@ const ConfigInput = (props: ConfigInputProps) => {
   }
 
   return (
-    <>
+    <div>
       <label htmlFor={cssRuleKey}>{cssRuleKey}</label>
+      <br />
       <input id={cssRuleKey} type={type} value={value} onChange={onChangeHandler} />
-    </>
+      {type === 'color' && <button onClick={onRemove}>remove</button>}
+    </div>
   )
 }
 
