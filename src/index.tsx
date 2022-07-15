@@ -11,16 +11,13 @@ style.innerHTML = `
   font-family: Montserrat;
   src: url("https://preeziestaticcontent.blob.core.windows.net/static/fonts/Montserrat-Regular-Preezie.woff2") format("woff2");
 }
-
 @font-face {
   font-family: Roboto;
   src: url("https://preeziestaticcontent.blob.core.windows.net/static/fonts/Roboto-Regular-Preezie.woff2") format("woff2");
 }
-
 .prz-widget-container { --primary-color: #ffa500; }
 .prz-widget-answer-wrapper { display: flex; flex-wrap: wrap; }
-.prz-widget-button { background-color: var(--primary-color, var(--widget-button-bg-color), #ffffff); }
-
+.prz-widget-button { background-color: var(--widget-button-bg-color, var(--primary-color, #ffffff)); }
 @media screen and (max-width: 900px) { .prz-widget-container { padding: 12px; } }
 @media screen and (max-width: 480px) {} 
 `
