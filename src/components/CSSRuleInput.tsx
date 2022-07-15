@@ -7,7 +7,7 @@ interface ConfigInputProps {
   type?: string
 }
 
-const ConfigInput = (props: ConfigInputProps) => {
+const CSSRuleInput = (props: ConfigInputProps) => {
   const { styleSheet, className, cssRuleKey, type } = props
   const [cssStyleRule, setCssStyleRule] = useState<CSSStyleRule | null>(null)
   const [value, setValue] = useState('')
@@ -15,6 +15,17 @@ const ConfigInput = (props: ConfigInputProps) => {
   useEffect(() => {
     if (type === 'color' && value === '') {
       setValue('#ffffff')
+    }
+
+    if (!cssStyleRule) {
+      const styleRule = getCssStyleRule()
+      if (styleRule) {
+        setCssStyleRule(styleRule)
+        const ruleValue = styleRule.style.getPropertyValue(cssRuleKey).trim()
+        if (ruleValue) {
+          setValue(ruleValue)
+        }
+      }
     }
   }, [])
 
@@ -37,7 +48,7 @@ const ConfigInput = (props: ConfigInputProps) => {
         styleRule.style.setProperty(cssRuleKey, value)
         setCssStyleRule(styleRule)
       } else {
-        const ruleIndex = styleSheet.insertRule(`${className} { ${cssRuleKey}: ${value}; }`)
+        const ruleIndex = styleSheet.insertRule(`${className} { ${cssRuleKey}: ${value}; }`, styleSheet.cssRules.length - 2)
         setCssStyleRule(styleSheet.cssRules[ruleIndex] as CSSStyleRule)
       }
     }
@@ -65,4 +76,4 @@ const ConfigInput = (props: ConfigInputProps) => {
   )
 }
 
-export default ConfigInput
+export default CSSRuleInput
