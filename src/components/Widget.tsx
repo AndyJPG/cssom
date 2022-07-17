@@ -28,11 +28,11 @@ const Widget = () => {
 
   return (
     <div className="prz-widget-container">
-      <h1 className="prz-widget-h1 prz-widget-h1-c123">Start your journey</h1>
-      <h4 className="prz-widget-h4 prz-widget-h4-c123">Find out how global brands have optimised their customer experience</h4>
-      <p className="prz-widget-p prz-widget-p-c123">What would you like to do better to accelerate your growth?</p>
-      <p className="prz-widget-p prz-widget-p-c456">You can choose more than one!</p>
-      <div className="prz-widget-answer-wrapper prz-widget-answer-wrapper-c123">
+      <h1 className="prz-widget-h1 prz-widget-h1-id123">Start your journey</h1>
+      <h4 className="prz-widget-h4 prz-widget-h4-id123">Find out how global brands have optimised their customer experience</h4>
+      <p className="prz-widget-p prz-widget-p-id123">What would you like to do better to accelerate your growth?</p>
+      <p className="prz-widget-p prz-widget-p-id456">You can choose more than one!</p>
+      <div className="prz-widget-answer-wrapper prz-widget-answer-wrapper-id123">
         {answers.map((answer) => (
           <div className="prz-widget-answer" key={answer.content}>
             <div className="prz-widget-answer-img">
@@ -43,9 +43,9 @@ const Widget = () => {
           </div>
         ))}
       </div>
-      <div className="prz-widget-button-wrapper prz-widget-button-wrapper-c123">
-        <button className="prz-widget-button prz-widget-button-c123">back</button>
-        <button className="prz-widget-button prz-widget-button-c456">next</button>
+      <div className="prz-widget-button-wrapper prz-widget-button-wrapper-id123">
+        <button className="prz-widget-button prz-widget-button-id123">back</button>
+        <button className="prz-widget-button prz-widget-button-id456">next</button>
       </div>
       <div className="prz-widget-logo">partnered with preezie</div>
     </div>

@@ -1,6 +1,5 @@
 import ExpandLess from '@mui/icons-material/ExpandLess'
 import ExpandMore from '@mui/icons-material/ExpandMore'
-import { List } from '@mui/material'
 import Collapse from '@mui/material/Collapse'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemText from '@mui/material/ListItemText'
@@ -21,7 +20,7 @@ const NestedList = (props: { title?: string; children?: React.ReactNode }) => {
         {expand ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={expand} timeout="auto" unmountOnExit>
-        <div style={{ paddingLeft: '12px' }}>{children}</div>
+        {children}
       </Collapse>
     </>
   )

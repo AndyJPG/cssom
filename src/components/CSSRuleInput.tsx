@@ -48,8 +48,29 @@ const CSSRuleInput = (props: ConfigInputProps) => {
         styleRule.style.setProperty(cssRuleKey, value)
         setCssStyleRule(styleRule)
       } else {
-        const ruleIndex = styleSheet.insertRule(`${className} { ${cssRuleKey}: ${value}; }`, styleSheet.cssRules.length - 2)
-        setCssStyleRule(styleSheet.cssRules[ruleIndex] as CSSStyleRule)
+        let found = false
+        const relevantClassName = className.split(' ')[0].split(':')[0]
+
+        for (const [key, value] of Object.entries(styleSheet.cssRules)) {
+          if (value instanceof CSSStyleRule) {
+            if (value.selectorText.includes(relevantClassName)) {
+              const ruleIndex = styleSheet.insertRule(`${className} { ${cssRuleKey}: ${value}; }`, parseInt(key, 10) + 2)
+              setCssStyleRule(styleSheet.cssRules[ruleIndex] as CSSStyleRule)
+              found = true
+              break
+            }
+          }
+        }
+
+        if (!found) {
+          if (className.includes('id')) {
+            const ruleIndex = styleSheet.insertRule(`${className} { ${cssRuleKey}: ${value}; }`, styleSheet.cssRules.length - 2)
+            setCssStyleRule(styleSheet.cssRules[ruleIndex] as CSSStyleRule)
+          } else {
+            const ruleIndex = styleSheet.insertRule(`${className} { ${cssRuleKey}: ${value}; }`)
+            setCssStyleRule(styleSheet.cssRules[ruleIndex] as CSSStyleRule)
+          }
+        }
       }
     }
   }

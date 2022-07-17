@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ComponentConfigPanel from './components/ComponentConfigPanel'
 import GlobalConfigPanel from './components/GlobalConfigPanel'
 import Widget from './components/Widget'
 
@@ -28,14 +29,23 @@ function App() {
 
   return (
     <>
-      <div style={{ position: 'absolute', maxWidth: '200px' }}>
-        <GlobalConfigPanel globalStyleSheet={globalStyleSheet} />
-      </div>
-      <div style={{ marginLeft: '220px' }}>
+      <div style={{ display: 'flex' }}>
+        <div style={{ width: '30%' }}>
+          <h4>Global Config</h4>
+          <GlobalConfigPanel globalStyleSheet={globalStyleSheet} />
+          <h4>Component Config</h4>
+          <ComponentConfigPanel globalStyleSheet={globalStyleSheet} />
+        </div>
         <Widget />
       </div>
       <button onClick={() => setRefresh((prevState) => !prevState)}>get stylesheet</button>
-      {refresh && <p>{Object.values(globalStyleSheet.cssRules).map((rule) => rule.cssText)}</p>}
+      {refresh && (
+        <>
+          {Object.values(globalStyleSheet.cssRules).map((rule) => (
+            <pre>{rule.cssText}</pre>
+          ))}
+        </>
+      )}
     </>
   )
 }
