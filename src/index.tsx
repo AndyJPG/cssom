@@ -7,10 +7,6 @@ import reportWebVitals from './reportWebVitals'
 const style = document.createElement('style')
 style.dataset.preezie = 'global'
 style.innerHTML = `
-@font-face {
-  font-family: Montserrat;
-  src: url("https://preeziestaticcontent.blob.core.windows.net/static/fonts/Montserrat-Regular-Preezie.woff2") format("woff2");
-}
 .prz-widget-container {}
 .prz-widget-h1 {}
 .prz-widget-h4 {}

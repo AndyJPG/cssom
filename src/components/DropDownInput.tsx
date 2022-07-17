@@ -15,6 +15,51 @@ const DropDownInput = (props: ConfigInputProps) => {
   const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setValue(e.target.value)
 
+    if (cssRuleKey === 'font-family') {
+      let font = ''
+      switch (e.target.value.toLowerCase()) {
+        case 'montserrat':
+          font = `
+          @font-face {
+            font-family: Montserrat;
+            src: url("https://preeziestaticcontent.blob.core.windows.net/static/fonts/Montserrat-Regular-Preezie.woff2") format("woff2");
+          }
+          `
+          break
+        case 'roboto':
+          font = `
+          @font-face {
+            font-family: Roboto;
+            src: url("https://preeziestaticcontent.blob.core.windows.net/static/fonts/Roboto-Regular-Preezie.woff2") format("woff2");
+          }
+          `
+          break
+        case 'notosans':
+          font = `
+          @font-face {
+            font-family: NotoSans;
+            src: url("https://preeziestaticcontent.blob.core.windows.net/static/fonts/NotoSans-Regular-Preezie.woff2") format("woff2");
+          }
+          `
+          break
+        default:
+          break
+      }
+
+      let fontExist = false
+      for (const rule of Object.values(styleSheet.cssRules)) {
+        if (rule instanceof CSSFontFaceRule) {
+          if (rule.style.getPropertyValue('font-family').toLowerCase() === e.target.value.toLowerCase()) {
+            fontExist = true
+          }
+        }
+      }
+
+      if (!fontExist) {
+        styleSheet.insertRule(font)
+      }
+    }
+
     if (cssStyleRule) {
       cssStyleRule.style.setProperty(cssRuleKey, e.target.value)
     } else {
@@ -23,7 +68,7 @@ const DropDownInput = (props: ConfigInputProps) => {
         styleRule.style.setProperty(cssRuleKey, e.target.value)
         setCssStyleRule(styleRule)
       } else {
-        const ruleIndex = styleSheet.insertRule(`${className} { ${cssRuleKey}: ${e.target.value}; }`)
+        const ruleIndex = styleSheet.insertRule(`${className} { ${cssRuleKey}: ${e.target.value}; }`, 10)
         setCssStyleRule(styleSheet.cssRules[ruleIndex] as CSSStyleRule)
       }
     }

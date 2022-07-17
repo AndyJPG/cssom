@@ -67,7 +67,7 @@ const CSSRuleInput = (props: ConfigInputProps) => {
             const ruleIndex = styleSheet.insertRule(`${className} { ${cssRuleKey}: ${value}; }`, styleSheet.cssRules.length - 2)
             setCssStyleRule(styleSheet.cssRules[ruleIndex] as CSSStyleRule)
           } else {
-            const ruleIndex = styleSheet.insertRule(`${className} { ${cssRuleKey}: ${value}; }`)
+            const ruleIndex = styleSheet.insertRule(`${className} { ${cssRuleKey}: ${value}; }`, 10)
             setCssStyleRule(styleSheet.cssRules[ruleIndex] as CSSStyleRule)
           }
         }

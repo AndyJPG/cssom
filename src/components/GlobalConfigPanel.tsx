@@ -14,7 +14,12 @@ const GlobalConfigPanel = (props: { globalStyleSheet: CSSStyleSheet }) => {
         <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-container" cssRuleKey="--primary-color" type="color" />
         <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-container" cssRuleKey="color" type="color" />
         <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-container" cssRuleKey="background-color" type="color" />
-        <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-container" cssRuleKey="font-family" options={['Roboto', 'Montserrat']} />
+        <DropDownInput
+          styleSheet={globalStyleSheet}
+          className=".prz-widget-container"
+          cssRuleKey="font-family"
+          options={['Montserrat', 'Roboto', 'NotoSans']}
+        />
         <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-container" cssRuleKey="border-width" type="number" />
         <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-container" cssRuleKey="border-style" options={['Solid', 'Dashed']} />
         <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-container" cssRuleKey="border-color" type="color" />
@@ -24,7 +29,7 @@ const GlobalConfigPanel = (props: { globalStyleSheet: CSSStyleSheet }) => {
         <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-h1" cssRuleKey="color" type="color" />
         <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-h1" cssRuleKey="background-color" type="color" />
         <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-h1" cssRuleKey="font-size" type="number" />
-        <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-h1" cssRuleKey="font-family" options={['Roboto', 'Montserrat']} />
+        <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-h1" cssRuleKey="font-family" options={['Montserrat', 'Roboto', 'NotoSans']} />
         <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-h1" cssRuleKey="font-weight" options={['200', '400', '500', '800']} />
         <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-h1" cssRuleKey="border-width" type="number" />
         <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-h1" cssRuleKey="border-style" options={['Solid', 'Dashed']} />
@@ -34,7 +39,7 @@ const GlobalConfigPanel = (props: { globalStyleSheet: CSSStyleSheet }) => {
         <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-button" cssRuleKey="color" type="color" />
         <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-button" cssRuleKey="--widget-button-bg-color" type="color" />
         <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-button" cssRuleKey="font-size" type="number" />
-        <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-button" cssRuleKey="font-family" options={['Roboto', 'Montserrat']} />
+        <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-button" cssRuleKey="font-family" options={['Montserrat', 'Roboto', 'NotoSans']} />
         <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-button" cssRuleKey="font-weight" options={['200', '400', '500', '800']} />
         <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-button" cssRuleKey="border-width" type="number" />
         <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-button" cssRuleKey="border-style" options={['Solid', 'Dashed']} />
@@ -43,7 +48,12 @@ const GlobalConfigPanel = (props: { globalStyleSheet: CSSStyleSheet }) => {
           <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-button:hover" cssRuleKey="color" type="color" />
           <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-button:hover" cssRuleKey="background-color" type="color" />
           <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-button:hover" cssRuleKey="font-size" type="number" />
-          <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-button:hover" cssRuleKey="font-family" options={['Roboto', 'Montserrat']} />
+          <DropDownInput
+            styleSheet={globalStyleSheet}
+            className=".prz-widget-button:hover"
+            cssRuleKey="font-family"
+            options={['Montserrat', 'Roboto', 'NotoSans']}
+          />
           <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-button:hover" cssRuleKey="font-weight" options={['200', '400', '500', '800']} />
           <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-button:hover" cssRuleKey="border-width" type="number" />
           <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-button:hover" cssRuleKey="border-style" options={['Solid', 'Dashed']} />
