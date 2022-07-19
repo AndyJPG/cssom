@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import ComponentConfigPanel from './components/ComponentConfigPanel'
+import CSSEditorInput from './components/CSSEditorInput'
 import GlobalConfigPanel from './components/GlobalConfigPanel'
 import Widget from './components/Widget'
 
 function App() {
   const [globalStyleSheet, setGlobalStyleSheet] = useState<CSSStyleSheet | null>(null)
+  const [cssEditorStyleSheet, setCssEditorStyleSheet] = useState<CSSStyleSheet | null>(null)
   const [refresh, setRefresh] = useState(true)
 
   useEffect(() => {
@@ -18,14 +20,17 @@ function App() {
         if (node instanceof HTMLElement) {
           if (node.dataset.preezie === 'global') {
             setGlobalStyleSheet(value)
-            break
+          }
+
+          if (node.dataset.preezie === 'cssEditor') {
+            setCssEditorStyleSheet(value)
           }
         }
       }
     }
   }
 
-  if (!globalStyleSheet) return null
+  if (!globalStyleSheet || !cssEditorStyleSheet) return null
 
   return (
     <>
@@ -35,6 +40,8 @@ function App() {
           <GlobalConfigPanel globalStyleSheet={globalStyleSheet} />
           <h4>Component Config</h4>
           <ComponentConfigPanel globalStyleSheet={globalStyleSheet} />
+          <h4>CSS Editor</h4>
+          <CSSEditorInput styleSheet={cssEditorStyleSheet} />
         </div>
         <Widget />
       </div>
