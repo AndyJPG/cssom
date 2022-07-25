@@ -27,6 +27,18 @@ const ComponentConfigPanel = (props: { globalStyleSheet: CSSStyleSheet }) => {
           <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-button-id123:hover" cssRuleKey="padding" />
         </NestedList>
       </NestedList>
+      <NestedList title="text id123">
+        <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-p-id123" cssRuleKey="color" type="color" />
+        <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-p-id123" cssRuleKey="font-family" options={['Roboto', 'Montserrat']} />
+        <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-p-id123" cssRuleKey="margin-top" />
+        <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-p-id123" cssRuleKey="margin-bottom" />
+      </NestedList>
+      <NestedList title="text id456">
+        <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-p-id456" cssRuleKey="font-size" />
+        <DropDownInput styleSheet={globalStyleSheet} className=".prz-widget-p-id456" cssRuleKey="font-style" options={['italic', 'normal']} />
+        <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-p-id456" cssRuleKey="margin-top" />
+        <CSSRuleInput styleSheet={globalStyleSheet} className=".prz-widget-p-id456" cssRuleKey="margin-bottom" />
+      </NestedList>
     </List>
   )
 }

@@ -30,42 +30,47 @@ const Widget = () => {
 
   return (
     <div className="prz-widget-container">
-      <h1 className="prz-widget-h1 prz-widget-h1-id123">Start your journey</h1>
-      <div className="prz-widget-progress-bar">
-        <div className="prz-widget-progress-bar-item previous">
-          <p className="prz-widget-progress-bar-text">question-1</p>
-          <div className="prz-widget-progress-bar-icon previous" />
-        </div>
-        <div className="prz-widget-progress-bar-item current">
-          <p className="prz-widget-progress-bar-text">question-2</p>
-          <div className="prz-widget-progress-bar-icon current" />
-        </div>
-        {progresses.map((progress) => (
-          <div className="prz-widget-progress-bar-item">
-            <p className="prz-widget-progress-bar-text">{progress}</p>
-            <div className="prz-widget-progress-bar-icon" />
-          </div>
-        ))}
-      </div>
-      <h4 className="prz-widget-h4 prz-widget-h4-id123">Find out how global brands have optimised their customer experience</h4>
+      <p className="prz-widget-h4 prz-widget-h1-id123">Start your journey</p>
+      <p className="prz-widget-h6 prz-widget-h6-id123">Find out how global brands have optimised their customer experience</p>
       <p className="prz-widget-p prz-widget-p-id123">What would you like to do better to accelerate your growth?</p>
       <p className="prz-widget-p prz-widget-p-id456">You can choose more than one!</p>
-      <div className="prz-widget-answer-wrapper prz-widget-answer-wrapper-id123">
-        {answers.map((answer, index) => (
-          <div className={`prz-widget-answer ${index === 0 && 'selected'}`} key={answer.content}>
-            <div className="prz-widget-answer-img">
-              <img src={answer.img} />
+      {/*<div className="prz-widget-progress-bar">*/}
+      {/*  <div className="prz-widget-progress-bar-item previous">*/}
+      {/*    <p className="prz-widget-progress-bar-text">question-1</p>*/}
+      {/*    <div className="prz-widget-progress-bar-icon previous" />*/}
+      {/*  </div>*/}
+      {/*  <div className="prz-widget-progress-bar-item current">*/}
+      {/*    <p className="prz-widget-progress-bar-text">question-2</p>*/}
+      {/*    <div className="prz-widget-progress-bar-icon current" />*/}
+      {/*  </div>*/}
+      {/*  {progresses.map((progress) => (*/}
+      {/*    <div className="prz-widget-progress-bar-item">*/}
+      {/*      <p className="prz-widget-progress-bar-text">{progress}</p>*/}
+      {/*      <div className="prz-widget-progress-bar-icon" />*/}
+      {/*    </div>*/}
+      {/*  ))}*/}
+      {/*</div>*/}
+      <div className="prz-widget-answer-container">
+        <div className="prz-widget-answer-wrapper prz-widget-answer-wrapper-id123">
+          {answers.map((answer, index) => (
+            <div className={`prz-widget-answer`} key={answer.content}>
+              <div className="prz-widget-answer-img-wrapper">
+                <img className="prz-widget-answer-img" src={answer.img} />
+              </div>
+              <p className="prz-widget-p prz-widget-answer-content">{answer.content}</p>
+              <div style={{ flexGrow: 1 }} />
+              <button className="prz-widget-answer-button" />
             </div>
-            <p className="prz-widget-p prz-widget-answer-content">{answer.content}</p>
-            <button className="prz-widget-button prz-widget-answer-button" />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <div className="prz-widget-button-wrapper prz-widget-button-wrapper-id123">
         <button className="prz-widget-button prz-widget-button-id123">back</button>
         <button className="prz-widget-button prz-widget-button-id456">next</button>
       </div>
-      <div className="prz-widget-logo">partnered with preezie</div>
+      <div className="prz-widget-logo-wrapper">
+        <div className="prz-widget-logo">partnered with preezie</div>
+      </div>
     </div>
   )
 }

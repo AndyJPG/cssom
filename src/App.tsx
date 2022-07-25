@@ -43,7 +43,9 @@ function App() {
           <h4>CSS Editor</h4>
           <CSSEditorInput styleSheet={cssEditorStyleSheet} />
         </div>
-        <Widget />
+        <div style={{ backgroundColor: 'darkgray', padding: '1rem' }}>
+          <Widget />
+        </div>
       </div>
       <button onClick={() => setRefresh((prevState) => !prevState)}>get stylesheet</button>
       {refresh && (
