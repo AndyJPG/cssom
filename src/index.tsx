@@ -106,7 +106,8 @@ style.innerHTML = `
   align-items: center;
   cursor: pointer;
 }
-.prz-widget-answer.selected { border-width: 1px; border-style: solid; border-color: #ffa500 }
+.prz-widget-answer.selected {}
+.prz-widget-answer.selected .prz-widget-answer-button { background-color: var(--bg-color, var(--primary-color)); border-color: var(--border-color, var(--primary-color));}
 
 .prz-widget-answer-img-wrapper {
   display: flex;

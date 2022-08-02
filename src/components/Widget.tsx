@@ -1,3 +1,5 @@
+import AnswerComponent from './AnswerComponent'
+
 const Widget = () => {
   const answers = [
     {
@@ -53,14 +55,7 @@ const Widget = () => {
       <div className="prz-widget-answer-container">
         <div className="prz-widget-answer-wrapper prz-widget-answer-wrapper-id123">
           {answers.map((answer, index) => (
-            <div className={`prz-widget-answer`} key={answer.content}>
-              <div className="prz-widget-answer-img-wrapper">
-                <img className="prz-widget-answer-img" src={answer.img} />
-              </div>
-              <p className="prz-widget-p prz-widget-answer-content">{answer.content}</p>
-              <div style={{ flexGrow: 1 }} />
-              <button className="prz-widget-answer-button" />
-            </div>
+            <AnswerComponent key={index} img={answer.img} content={answer.content} />
           ))}
         </div>
       </div>
